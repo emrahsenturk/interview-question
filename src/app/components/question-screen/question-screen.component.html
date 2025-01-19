@@ -1,0 +1,28 @@
+<div class="question-screen">
+  <button class="home-button" (click)="goHome()">
+    <i class="fas fa-home"></i> Anasayfa
+  </button>
+
+  <div class="header">
+    <div class="progress">Soru {{ currentQuestionIndex + 1 }}/{{ totalQuestions }}</div>
+    <div class="timer" [class.warning]="remainingTime <= 10">{{ formatTime(remainingTime) }}</div>
+  </div>
+
+  <div class="question-container" *ngIf="currentQuestion">
+    <h2>{{ currentQuestion.title }}</h2>
+    <p class="description">{{ currentQuestion.description }}</p>
+    <pre class="code-block" *ngIf="currentQuestion.codeExample">{{ currentQuestion.codeExample }}</pre>
+  </div>
+
+  <div class="navigation">
+    <button class="previous" (click)="previousQuestion()" [disabled]="currentQuestionIndex === 0">
+      Önceki Soru
+    </button>
+    <button class="next" (click)="nextQuestion()" *ngIf="currentQuestionIndex < totalQuestions - 1">
+      Sonraki Soru
+    </button>
+    <button class="finish" (click)="finishInterview()" *ngIf="currentQuestionIndex === totalQuestions - 1">
+      Mülakatı Bitir
+    </button>
+  </div>
+</div> 

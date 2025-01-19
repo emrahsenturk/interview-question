@@ -1,0 +1,47 @@
+<div class="language-selection">
+  <h1>Yazılım Mülakat Soruları</h1>
+  
+  <div class="selection-container">
+    <div class="language-section">
+      <h2>Programlama Dili</h2>
+      <div class="grid">
+        <button *ngFor="let language of languages"
+                [class.selected]="selectedLanguage === language"
+                (click)="selectLanguage(language)">
+          {{ language }}
+        </button>
+      </div>
+    </div>
+
+    <div class="difficulty-section">
+      <h2>Zorluk Seviyesi</h2>
+      <div class="grid">
+        <button *ngFor="let difficulty of difficulties"
+                [class.selected]="selectedDifficulty === difficulty"
+                [class.easy]="difficulty === 'Kolay'"
+                [class.medium]="difficulty === 'Orta'"
+                [class.hard]="difficulty === 'Zor'"
+                (click)="selectDifficulty(difficulty)">
+          {{ difficulty }}
+        </button>
+      </div>
+    </div>
+
+    <div class="time-section">
+      <h2>Soru Süresi</h2>
+      <div class="grid">
+        <button *ngFor="let time of times"
+                [class.selected]="selectedTime === time"
+                (click)="selectTime(time)">
+          {{ formatTime(time) }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <button class="start-button"
+          [disabled]="!canStartInterview()"
+          (click)="startInterview()">
+    Mülakatı Başlat
+  </button>
+</div>

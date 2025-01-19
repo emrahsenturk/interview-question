@@ -1,0 +1,182 @@
+.question-screen {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%);
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+
+  .home-button {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    }
+
+    i {
+      font-size: 1rem;
+    }
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3rem 0 2rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+    .progress {
+      font-size: 1.2rem;
+      color: #2c3e50;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border: 2px solid #3498db;
+      border-radius: 8px;
+    }
+
+    .timer {
+      font-size: 1.2rem;
+      color: #2c3e50;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border: 2px solid #2ecc71;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+
+      &.warning {
+        color: #e74c3c;
+        border-color: #e74c3c;
+        animation: pulse 1s infinite;
+      }
+    }
+  }
+
+  .question-container {
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    h2 {
+      color: #2c3e50;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid #3498db;
+    }
+
+    .description {
+      color: #34495e;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .code-block {
+      background: #2c3e50;
+      color: #ecf0f1;
+      padding: 1.5rem;
+      border-radius: 8px;
+      font-family: 'Fira Code', monospace;
+      font-size: 1rem;
+      line-height: 1.5;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    button {
+      min-width: 200px;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+
+      &.previous {
+        background: linear-gradient(135deg, #4a90e2, #357abd);
+        box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+
+        &:hover:not(:disabled) {
+          background: linear-gradient(135deg, #357abd, #2868a9);
+          box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+        }
+
+        &:disabled {
+          background: #bdc3c7;
+          cursor: not-allowed;
+          box-shadow: none;
+        }
+      }
+
+      &.next {
+        background: linear-gradient(135deg, #00bcd4, #0097a7);
+        box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
+
+        &:hover {
+          background: linear-gradient(135deg, #0097a7, #00838f);
+          box-shadow: 0 5px 15px rgba(0, 188, 212, 0.4);
+        }
+      }
+
+      &.finish {
+        background: linear-gradient(135deg, #2ecc71, #27ae60);
+        box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+
+        &:hover {
+          background: linear-gradient(135deg, #27ae60, #219a52);
+          box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+        }
+      }
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+} 
